@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 03-dic-2019 8:56:38 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="gim" name="com.alpirres.Modelo.Material" optimistic-lock="version" table="material">
+    <id name="id" type="java.lang.Integer">
+      <column name="id"/>
+      <generator class="identity"/>
+    </id>
+    <property name="nombre" type="string">
+      <column name="nombre" not-null="true"/>
+    </property>
+    <property name="peso" type="int">
+      <column name="peso" not-null="true"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="ejercicioMaterials" table="`ejercicio-material`">
+      <key>
+        <column name="id_material" not-null="true"/>
+      </key>
+      <one-to-many class="com.alpirres.Modelo.EjercicioMaterial"/>
+    </set>
+  </class>
+</hibernate-mapping>

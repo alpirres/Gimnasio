@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 03-dic-2019 8:56:38 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="gim" name="com.alpirres.Modelo.CircuEjercicio" optimistic-lock="version" table="`circu-ejercicio`">
+    <id name="id" type="java.lang.Integer">
+      <column name="id"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="com.alpirres.Modelo.Circuito" fetch="select" name="circuito">
+      <column name="id_circuito" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="com.alpirres.Modelo.Ejercicio" fetch="select" name="ejercicio">
+      <column name="id_ejercicio" not-null="true"/>
+    </many-to-one>
+  </class>
+</hibernate-mapping>
