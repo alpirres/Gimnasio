@@ -20,7 +20,7 @@ import java.util.List;
  * @author alfon
  */
 public class EMController {
-    static EMHibernate em;
+    public EMHibernate em;
     static Conection c;
     
     public void Insertar(int ejer, int mat){
@@ -39,20 +39,6 @@ public class EMController {
         List<EjercicioMaterial> lista = new ArrayList<>();
         lista=em.Select();
         return lista;
-    }
-    
-    public void Actualizar(int id, int ejer, int mat){
-        c.abrir();
-        
-        Ejercicio ejercicio =(Ejercicio) c.session.get(Ejercicio.class, ejer);
-        Material material = (Material) c.session.get(Material.class, mat);
-        EjercicioMaterial a = (EjercicioMaterial) c.session.get(EjercicioMaterial.class, id);
-        a.setEjercicio(ejercicio);
-        a.setMaterial(material);
-        
-        c.cerrar();
-        
-        em.Update(a);
     }
     
     public void Borrar(int id){

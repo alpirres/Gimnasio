@@ -34,18 +34,9 @@ public class CircuitoController {
         return lista;
     }
     
-    public void Actualizar(int id, String name){
-        c.abrir();
-        
-        Circuito a = (Circuito) c.session.get(Circuito.class, id);
-        a.setNombre(name);
-        
-        c.cerrar();
-        
-        cir.Update(a);
-    }
     
-    public void Borrar(int id)throws SQLException{
+    
+    public void Borrar(int id){
         cir.Delete(id);
     }
 }

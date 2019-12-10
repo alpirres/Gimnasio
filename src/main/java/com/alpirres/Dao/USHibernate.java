@@ -21,7 +21,7 @@ public class USHibernate {
         c.abrir();
 
         c.session.save(us);
-
+        
         c.cerrar();
     }
     
@@ -34,11 +34,44 @@ public class USHibernate {
         return query.list();
     }
     
-    public static void Update(UsuarioSesion us){
+    public static boolean SearchIdU(int id){
+        boolean esta=false;
+        c.abrir();
+        
+        Query query = c.session.createQuery("from UsuarioSesion where id_usuario= :id");
+        query.setParameter("id", id);
+        
+        if (query.list().size()>0){
+            esta=true;
+        }
+        c.cerrar();
+        
+        return esta;
+    }
+    public static boolean SearchIdS(int id){
+        boolean esta=false;
+        c.abrir();
+        
+        Query query = c.session.createQuery("from UsuarioSesion where id_sesion= :id");
+        query.setParameter("id", id);
+        
+        if (query.list().size()>0){
+            esta=true;
+        }
+        c.cerrar();
+        
+        return esta;
+    }
+    
+    public static void Update(int id, int id_sesion, int id_usuario){
         c.abrir();
 
-        c.session.update(us);
-        
+        Query query = c.session.createQuery("update UsuarioSesion set id_sesion= :id_sesion, id_usuario = :id_usuario  where id = :id");
+        query.setParameter("id_sesion", id_sesion);
+        query.setParameter("id_usuario", id_usuario);
+        query.setParameter("id", id);
+        int result = query.executeUpdate();
+        System.out.println(result+"adkfjhasrhfgry");
         c.cerrar();
     }
     

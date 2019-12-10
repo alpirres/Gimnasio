@@ -3,7 +3,6 @@ package com.alpirres.Modelo;
 
 
 import java.sql.Time;
-import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -15,7 +14,7 @@ public class Sesion  implements java.io.Serializable {
 
      private Integer id;
      private Circuito circuito;
-     private Timestamp fecha;
+     private String fecha;
      private Time hora;
      private Set usuarioSesions = new HashSet(0);
 
@@ -23,12 +22,12 @@ public class Sesion  implements java.io.Serializable {
     }
 
 	
-    public Sesion(Circuito circuito, Timestamp fecha, Time hora) {
+    public Sesion(Circuito circuito, String fecha, Time hora) {
         this.circuito = circuito;
         this.fecha = fecha;
         this.hora = hora;
     }
-    public Sesion(Circuito circuito, Timestamp fecha, Time hora, Set usuarioSesions) {
+    public Sesion(Circuito circuito, String fecha, Time hora, Set usuarioSesions) {
        this.circuito = circuito;
        this.fecha = fecha;
        this.hora = hora;
@@ -49,11 +48,11 @@ public class Sesion  implements java.io.Serializable {
     public void setCircuito(Circuito circuito) {
         this.circuito = circuito;
     }
-    public Timestamp getFecha() {
+    public String getFecha() {
         return this.fecha;
     }
     
-    public void setFecha(Timestamp fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
     public Time getHora() {

@@ -5,6 +5,7 @@
  */
 package com.alpirres.Dao;
 
+import static com.alpirres.Dao.CircuitoHibernate.c;
 import com.alpirres.Modelo.CircuEjercicio;
 import com.alpirres.Utilities.Conection;
 import java.util.List;
@@ -34,10 +35,44 @@ public class CEHibernate {
         return query.list();
     }
     
-    public static void Update(CircuEjercicio ce){
+    public static boolean SearchId(int id){
+        boolean esta=false;
+        c.abrir();
+        
+        Query query = c.session.createQuery("from CircuEjercicio where id_circuito= :id");
+        query.setParameter("id", id);
+        
+        if (query.list().size()>0){
+            esta=true;
+        }
+        c.cerrar();
+        
+        return esta;
+    }
+    
+    public static boolean SearchIdE(int id){
+        boolean esta=false;
+        c.abrir();
+        
+        Query query = c.session.createQuery("from CircuEjercicio where id_ejercicio= :id");
+        query.setParameter("id", id);
+        
+        if (query.list().size()>0){
+            esta=true;
+        }
+        c.cerrar();
+        
+        return esta;
+    }
+    
+    public static void Update(int id, int id_circuito, int id_ejercicio){
         c.abrir();
 
-        c.session.update(ce);
+        Query query = c.session.createQuery("update CircuEjercicio set id_circuito = :id_circuito , id_ejercicio= :id_ejercicio where id = :id");
+        query.setParameter("id_circuito", id_circuito);
+        query.setParameter("id_ejercicio", id_ejercicio);
+        query.setParameter("id", id);
+        int result = query.executeUpdate();
         
         c.cerrar();
     }

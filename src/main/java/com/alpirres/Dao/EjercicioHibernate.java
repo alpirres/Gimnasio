@@ -7,6 +7,7 @@ package com.alpirres.Dao;
 
 import com.alpirres.Modelo.Ejercicio;
 import com.alpirres.Utilities.Conection;
+import java.sql.Time;
 import java.util.List;
 import org.hibernate.query.Query;
 
@@ -51,10 +52,16 @@ public class EjercicioHibernate {
         return esta;
     }
     
-    public static void Update(Ejercicio e){
+    public static void Update(int id, String nombre, Time duracion, int repeticiones, int series){
         c.abrir();
 
-        c.session.update(e);
+        Query query = c.session.createQuery("update Ejercicio set nombre= :nombre , duracion= :duracion, repeticiones= :repeticiones, series= :series where id = :id");
+        query.setParameter("nombre", nombre);
+        query.setParameter("duracion", duracion);
+        query.setParameter("repeticiones",repeticiones);
+        query.setParameter("series", series);
+        query.setParameter("id", id);
+        int result = query.executeUpdate();
         
         c.cerrar();
     }

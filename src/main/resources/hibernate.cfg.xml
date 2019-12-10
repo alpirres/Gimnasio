@@ -45,7 +45,6 @@ Contributor(s):
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/gim?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
-    <mapping resource="com/alpirres/gym/Factura.hbm.xml"/>
     <mapping resource="com/alpirres/gym/Sesion.hbm.xml"/>
     <mapping resource="com/alpirres/gym/Ejercicio.hbm.xml"/>
     <mapping resource="com/alpirres/gym/EjercicioMaterial.hbm.xml"/>

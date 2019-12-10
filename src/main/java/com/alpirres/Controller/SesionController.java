@@ -9,14 +9,9 @@ import com.alpirres.Dao.SesionHibernate;
 import com.alpirres.Modelo.Circuito;
 import com.alpirres.Modelo.Sesion;
 import com.alpirres.Utilities.Conection;
-import com.alpirres.Utilities.HibernateUtilities_5;
-import java.sql.SQLException;
 import java.sql.Time;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 
 /**
  *
@@ -27,7 +22,7 @@ public class SesionController {
     public SesionHibernate ses;
     static Conection c;
     
-    public void Insertar(int circu, Timestamp fecha, Time horao){
+    public void Insertar(int circu, String fecha, Time horao){
         c.abrir();
         
         Circuito circuito =(Circuito) c.session.get(Circuito.class, circu);
@@ -44,21 +39,8 @@ public class SesionController {
         return lista;
     }
     
-    public void Actualizar(int id, int circu, Timestamp fecha, Time hora){
-        c.abrir();
-        
-        Circuito circuito =(Circuito) c.session.get(Circuito.class, circu);
-        Sesion a = (Sesion) c.session.get(Sesion.class, id);
-        a.setCircuito(circuito);
-        a.setFecha(fecha);
-        a.setHora(hora);
-        
-        c.cerrar();
-        
-        ses.Update(a);
-    }
     
-    public void Borrar(int id)throws SQLException{
+    public void Borrar(int id){
        ses.Delete(id);
     }
 }

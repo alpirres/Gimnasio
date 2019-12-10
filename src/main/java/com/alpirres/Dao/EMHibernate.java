@@ -34,10 +34,44 @@ public class EMHibernate {
         return query.list();
     }
     
-    public static void Update(EjercicioMaterial em){
+    
+    public static boolean SearchIdE(int id){
+        boolean esta=false;
+        c.abrir();
+        
+        Query query = c.session.createQuery("from EjercicioMaterial where id_ejercicio= :id");
+        query.setParameter("id", id);
+        
+        if (query.list().size()>0){
+            esta=true;
+        }
+        c.cerrar();
+        
+        return esta;
+    }
+    public static boolean SearchIdM(int id){
+        boolean esta=false;
+        c.abrir();
+        
+        Query query = c.session.createQuery("from EjercicioMaterial where id_material= :id");
+        query.setParameter("id", id);
+        
+        if (query.list().size()>0){
+            esta=true;
+        }
+        c.cerrar();
+        
+        return esta;
+    }
+    
+    public static void Update(int id, int id_ejercicio, int id_material){
         c.abrir();
 
-        c.session.update(em);
+       Query query = c.session.createQuery("update EjercicioMaterial set id_ejercicio = :id_ejercicio , id_material= :id_material where id = :id");
+        query.setParameter("id_ejercicio", id_ejercicio);
+        query.setParameter("id_material", id_material);
+        query.setParameter("id", id);
+        int result = query.executeUpdate();
         
         c.cerrar();
     }

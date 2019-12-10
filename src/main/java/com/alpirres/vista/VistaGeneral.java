@@ -6,10 +6,8 @@
 package com.alpirres.vista;
 
 import com.alpirres.App.ControllerApp;
-import com.alpirres.Controller.*;
 import java.awt.Color;
 import java.awt.Image;
-import java.sql.SQLException;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
@@ -20,7 +18,6 @@ import javax.swing.JLabel;
 public class VistaGeneral extends javax.swing.JFrame {
 
     private UsuarioTablaModel usutable;
-    private FacturaTablaModel ftable;
     private SesionTablaModel stable;
     private CircuitoTableModel ctable;
     private EjercicioTablaModel etable;
@@ -29,6 +26,7 @@ public class VistaGeneral extends javax.swing.JFrame {
     private EMTablaModel emtable;
     private CETablaModel cetable;
     private final ControllerApp c;
+    private static int fila;
 
     /**
      *
@@ -52,7 +50,7 @@ public class VistaGeneral extends javax.swing.JFrame {
 
         MaterialForm = new javax.swing.JFrame();
         jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        tituloMat = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
         nombreMat = new javax.swing.JTextField();
@@ -62,7 +60,7 @@ public class VistaGeneral extends javax.swing.JFrame {
         msgM = new javax.swing.JLabel();
         UsuarioForm = new javax.swing.JFrame();
         jPanel3 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
+        tituloUsu = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel8 = new javax.swing.JLabel();
         nombreUsu = new javax.swing.JTextField();
@@ -76,7 +74,7 @@ public class VistaGeneral extends javax.swing.JFrame {
         msgU = new javax.swing.JLabel();
         EjercicioForm = new javax.swing.JFrame();
         jPanel4 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        tituloEje = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel6 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -101,7 +99,7 @@ public class VistaGeneral extends javax.swing.JFrame {
         msgC = new javax.swing.JLabel();
         SesionForm = new javax.swing.JFrame();
         jPanel6 = new javax.swing.JPanel();
-        jLabel18 = new javax.swing.JLabel();
+        tituloSes = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
         jLabel19 = new javax.swing.JLabel();
         fechaSes = new javax.swing.JTextField();
@@ -119,6 +117,46 @@ public class VistaGeneral extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         errorTabla = new javax.swing.JLabel();
         other = new javax.swing.JLabel();
+        actCircu = new javax.swing.JFrame();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jSeparator6 = new javax.swing.JSeparator();
+        jLabel5 = new javax.swing.JLabel();
+        actuCircu = new javax.swing.JTextField();
+        actBotonCircu = new javax.swing.JButton();
+        actCE = new javax.swing.JFrame();
+        jPanel9 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jSeparator7 = new javax.swing.JSeparator();
+        jLabel18 = new javax.swing.JLabel();
+        circuCE = new javax.swing.JTextField();
+        jLabel23 = new javax.swing.JLabel();
+        ejerCE = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
+        msgcCE = new javax.swing.JLabel();
+        msgeCE = new javax.swing.JLabel();
+        actEM = new javax.swing.JFrame();
+        jPanel10 = new javax.swing.JPanel();
+        jLabel24 = new javax.swing.JLabel();
+        jSeparator8 = new javax.swing.JSeparator();
+        jLabel25 = new javax.swing.JLabel();
+        matEM = new javax.swing.JTextField();
+        jLabel26 = new javax.swing.JLabel();
+        ejerEM = new javax.swing.JTextField();
+        actBotonEM = new javax.swing.JButton();
+        msgmEM = new javax.swing.JLabel();
+        msgeEM = new javax.swing.JLabel();
+        actUS = new javax.swing.JFrame();
+        jPanel11 = new javax.swing.JPanel();
+        jLabel27 = new javax.swing.JLabel();
+        jSeparator9 = new javax.swing.JSeparator();
+        jLabel28 = new javax.swing.JLabel();
+        usuUS = new javax.swing.JTextField();
+        jLabel29 = new javax.swing.JLabel();
+        sesUS = new javax.swing.JTextField();
+        actBotonUS = new javax.swing.JButton();
+        msguUS = new javax.swing.JLabel();
+        msgsUS = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         opciones = new javax.swing.JComboBox<>();
@@ -140,8 +178,8 @@ public class VistaGeneral extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel3.setText("Crear un nuevo Material");
+        tituloMat.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        tituloMat.setText("Crear un nuevo Material");
 
         jLabel2.setText("Nombre");
 
@@ -176,7 +214,7 @@ public class VistaGeneral extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(26, 26, 26)
-                        .addComponent(jLabel3))
+                        .addComponent(tituloMat))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -202,7 +240,7 @@ public class VistaGeneral extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(jLabel3)
+                .addComponent(tituloMat)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -244,8 +282,8 @@ public class VistaGeneral extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel7.setText("Crear un nuevo Usuario");
+        tituloUsu.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        tituloUsu.setText("Crear un nuevo Usuario");
 
         jLabel8.setText("Nombre");
 
@@ -304,7 +342,7 @@ public class VistaGeneral extends javax.swing.JFrame {
                                     .addComponent(dniUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel7))
+                        .addComponent(tituloUsu))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(109, 109, 109)
                         .addComponent(CrearUsu)))
@@ -318,7 +356,7 @@ public class VistaGeneral extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(jLabel7)
+                .addComponent(tituloUsu)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -367,8 +405,8 @@ public class VistaGeneral extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel5.setText("Crear un nuevo Ejercicio");
+        tituloEje.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        tituloEje.setText("Crear un nuevo Ejercicio");
 
         jLabel6.setText("Nombre");
 
@@ -415,7 +453,7 @@ public class VistaGeneral extends javax.swing.JFrame {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGap(16, 16, 16)
-                                .addComponent(jLabel5))
+                                .addComponent(tituloEje))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -449,7 +487,7 @@ public class VistaGeneral extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel5)
+                .addComponent(tituloEje)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -620,8 +658,8 @@ public class VistaGeneral extends javax.swing.JFrame {
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel18.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel18.setText("Crear una nueva Sesion");
+        tituloSes.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        tituloSes.setText("Crear una nueva Sesion");
 
         jLabel19.setText("Fecha");
 
@@ -658,7 +696,7 @@ public class VistaGeneral extends javax.swing.JFrame {
 
         msgS1.setText("Formato de fecha incorrecto");
 
-        msgS3.setText("Circuito no existente");
+        msgS3.setText("Circuito no valido");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -689,7 +727,7 @@ public class VistaGeneral extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(29, 29, 29)
-                        .addComponent(jLabel18))
+                        .addComponent(tituloSes))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -708,7 +746,7 @@ public class VistaGeneral extends javax.swing.JFrame {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(jLabel18)
+                .addComponent(tituloSes)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -746,7 +784,8 @@ public class VistaGeneral extends javax.swing.JFrame {
 
         jDialog1.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         jDialog1.setTitle("ERROR");
-        jDialog1.setSize(new java.awt.Dimension(380, 150));
+        jDialog1.setResizable(false);
+        jDialog1.setSize(new java.awt.Dimension(380, 160));
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -806,6 +845,401 @@ public class VistaGeneral extends javax.swing.JFrame {
             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        actCircu.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        actCircu.setTitle("Circuito");
+        actCircu.setResizable(false);
+        actCircu.setSize(new java.awt.Dimension(260, 200));
+        actCircu.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                actCircuWindowClosed(evt);
+            }
+        });
+
+        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel3.setText("Actualizar Circuito");
+
+        jLabel5.setText("Nombre");
+
+        actuCircu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                actuCircuMouseClicked(evt);
+            }
+        });
+
+        actBotonCircu.setText("Actualizar");
+        actBotonCircu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                actBotonCircuActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jSeparator6, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel3))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addComponent(actBotonCircu))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel5)
+                        .addGap(18, 18, 18)
+                        .addComponent(actuCircu, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(actuCircu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addComponent(actBotonCircu)
+                .addGap(23, 23, 23))
+        );
+
+        javax.swing.GroupLayout actCircuLayout = new javax.swing.GroupLayout(actCircu.getContentPane());
+        actCircu.getContentPane().setLayout(actCircuLayout);
+        actCircuLayout.setHorizontalGroup(
+            actCircuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        actCircuLayout.setVerticalGroup(
+            actCircuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        actCE.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        actCE.setTitle("Circuito-Ejercicio");
+        actCE.setResizable(false);
+        actCE.setSize(new java.awt.Dimension(340, 190));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel7.setText("Actualizar Circuito-Ejercicio");
+
+        jLabel18.setText("Circuito");
+
+        circuCE.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                circuCEMouseClicked(evt);
+            }
+        });
+
+        jLabel23.setText("Ejercicio");
+
+        ejerCE.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ejerCEMouseClicked(evt);
+            }
+        });
+
+        jButton2.setText("Actualizar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        msgcCE.setText("circuito no existente");
+
+        msgeCE.setText("Ejercicio no existente");
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel7)
+                .addGap(27, 27, 27))
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator7)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addComponent(jLabel18)
+                        .addGap(18, 18, 18)
+                        .addComponent(circuCE, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38)
+                        .addComponent(jLabel23)
+                        .addGap(18, 18, 18)
+                        .addComponent(ejerCE, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(122, 122, 122)
+                        .addComponent(jButton2))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(msgcCE)
+                        .addGap(50, 50, 50)
+                        .addComponent(msgeCE)))
+                .addContainerGap(19, Short.MAX_VALUE))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(circuCE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel23)
+                    .addComponent(ejerCE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(msgcCE)
+                    .addComponent(msgeCE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout actCELayout = new javax.swing.GroupLayout(actCE.getContentPane());
+        actCE.getContentPane().setLayout(actCELayout);
+        actCELayout.setHorizontalGroup(
+            actCELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        actCELayout.setVerticalGroup(
+            actCELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        actEM.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        actEM.setTitle("Circuito-Ejercicio");
+        actEM.setResizable(false);
+        actEM.setSize(new java.awt.Dimension(340, 190));
+        actEM.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                actEMWindowClosed(evt);
+            }
+        });
+
+        jLabel24.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel24.setText("Actualizar Ejercicio-Material");
+
+        jLabel25.setText("Material");
+
+        matEM.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                matEMMouseClicked(evt);
+            }
+        });
+
+        jLabel26.setText("Ejercicio");
+
+        ejerEM.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ejerEMMouseClicked(evt);
+            }
+        });
+
+        actBotonEM.setText("Actualizar");
+        actBotonEM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                actBotonEMActionPerformed(evt);
+            }
+        });
+
+        msgmEM.setText("Material no existente");
+
+        msgeEM.setText("Ejercicio no existente");
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel24)
+                .addGap(27, 27, 27))
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator8)
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addComponent(jLabel25)
+                        .addGap(18, 18, 18)
+                        .addComponent(matEM, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38)
+                        .addComponent(jLabel26)
+                        .addGap(18, 18, 18)
+                        .addComponent(ejerEM, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGap(122, 122, 122)
+                        .addComponent(actBotonEM))
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(msgmEM)
+                        .addGap(50, 50, 50)
+                        .addComponent(msgeEM)))
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel24)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25)
+                    .addComponent(matEM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel26)
+                    .addComponent(ejerEM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(msgmEM)
+                    .addComponent(msgeEM))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(actBotonEM)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout actEMLayout = new javax.swing.GroupLayout(actEM.getContentPane());
+        actEM.getContentPane().setLayout(actEMLayout);
+        actEMLayout.setHorizontalGroup(
+            actEMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        actEMLayout.setVerticalGroup(
+            actEMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        actUS.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        actUS.setTitle("Circuito-Ejercicio");
+        actUS.setResizable(false);
+        actUS.setSize(new java.awt.Dimension(340, 190));
+        actUS.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                actUSWindowClosed(evt);
+            }
+        });
+
+        jLabel27.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel27.setText("Actualizar Usuario-Sesion");
+
+        jLabel28.setText("Usuario");
+
+        usuUS.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                usuUSMouseClicked(evt);
+            }
+        });
+
+        jLabel29.setText("Sesión");
+
+        sesUS.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                sesUSMouseClicked(evt);
+            }
+        });
+
+        actBotonUS.setText("Actualizar");
+        actBotonUS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                actBotonUSActionPerformed(evt);
+            }
+        });
+
+        msguUS.setText("Usuario no existente");
+
+        msgsUS.setText("Sesion no existente");
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel27)
+                .addGap(27, 27, 27))
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator9)
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addComponent(jLabel28)
+                        .addGap(18, 18, 18)
+                        .addComponent(usuUS, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38)
+                        .addComponent(jLabel29)
+                        .addGap(18, 18, 18)
+                        .addComponent(sesUS, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addGap(122, 122, 122)
+                        .addComponent(actBotonUS))
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(msguUS)
+                        .addGap(50, 50, 50)
+                        .addComponent(msgsUS)))
+                .addContainerGap(27, Short.MAX_VALUE))
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel28)
+                    .addComponent(usuUS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel29)
+                    .addComponent(sesUS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(msguUS)
+                    .addComponent(msgsUS))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(actBotonUS)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout actUSLayout = new javax.swing.GroupLayout(actUS.getContentPane());
+        actUS.getContentPane().setLayout(actUSLayout);
+        actUSLayout.setHorizontalGroup(
+            actUSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        actUSLayout.setVerticalGroup(
+            actUSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gimnasio");
         setBackground(new java.awt.Color(255, 255, 255));
@@ -823,7 +1257,7 @@ public class VistaGeneral extends javax.swing.JFrame {
         jLabel1.setText("Gimnasio");
 
         opciones.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        opciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuarios", "Facturas", "Sesiones", "Ususario-Sesiones", "Circuitos", "Circuitos-Ejercicios", "Ejercicios", "Ejercicios-Materiales", "Materiales" }));
+        opciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuarios", "Facturas", "Sesiones", "Circuitos", "Ejercicios", "Materiales", "Ejercicios-Materiales", "Usuarios-Sesiones", "Circuitos-Ejercicios" }));
         opciones.setBorder(null);
         opciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -843,6 +1277,11 @@ public class VistaGeneral extends javax.swing.JFrame {
         editBoton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/alpirres/gym/icons/edit.png"))); // NOI18N
         editBoton.setBorder(null);
         editBoton.setBorderPainted(false);
+        editBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editBotonActionPerformed(evt);
+            }
+        });
 
         deleteBoton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/alpirres/gym/icons/delete.png"))); // NOI18N
         deleteBoton.setBorder(null);
@@ -865,6 +1304,11 @@ public class VistaGeneral extends javax.swing.JFrame {
         ));
         tabla.setRowHeight(30);
         tabla.setSelectionBackground(new java.awt.Color(204, 102, 255));
+        tabla.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabla);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -930,10 +1374,6 @@ public class VistaGeneral extends javax.swing.JFrame {
                 this.usutable = new UsuarioTablaModel(c.u);
                 this.tabla.setModel(usutable);
                 break;
-            case "Facturas":
-                this.ftable = new FacturaTablaModel(c.f);
-                this.tabla.setModel(ftable);
-                break;
             case "Sesiones":
                 this.stable = new SesionTablaModel(c.s);
                 this.tabla.setModel(stable);
@@ -964,51 +1404,91 @@ public class VistaGeneral extends javax.swing.JFrame {
                 break;
 
         }
+        deleteBoton.setEnabled(false);
+        editBoton.setEnabled(false);
     }//GEN-LAST:event_opcionesActionPerformed
 
     private void addBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBotonActionPerformed
         // TODO add your handling code here:
+        
         switch (opciones.getSelectedItem().toString()) {
             case "Usuarios":
                 msgU.setVisible(false);
+                setBackground(Color.white);
+                setBackground(Color.white);
+                CrearUsu.setText("Crear");
+                tituloUsu.setText("Crear un nuevo Usuario");
                 UsuarioForm.setVisible(true);
                 break;
             case "Facturas":
+                
                 break;
             case "Sesiones":
                 msgS1.setVisible(false);
                 msgS2.setVisible(false);
                 msgS3.setVisible(false);
+                crearSes.setText("Crear");
                 SesionForm.setVisible(true);
                 break;
             case "Circuitos":
+                this.nombreCircu.setText("");setBackground(Color.white);
+                this.ejerCircu.setText("");setBackground(Color.white);
                 this.comboEje.removeAllItems();
                 this.comboEje.addItem("Añadir ejercicio...");
-                msgC.setVisible(false);
                 CircuForm.setVisible(true);
                 break;
             case "Ejercicios":
                 msgE.setVisible(false);
+                crearEje.setText("Crear");
                 this.EjercicioForm.setVisible(true);
                 break;
             case "Materiales":
                 msgM.setVisible(false);
+                CrearMat.setText("Crear");
                 MaterialForm.setVisible(true);
+                break;
+            case "Ejercicios-Materiales":
+                msgeEM.setVisible(false);
+                msgmEM.setVisible(false);
+                matEM.setText("");setBackground(Color.white);
+                ejerEM.setText("");setBackground(Color.white);
+                actBotonEM.setText("Crear");
+                actEM.setVisible(true);
+                break;
+            case "Circuitos-Ejercicios":
+                addBoton.setEnabled(true);
+                break;
+            case "Usuarios-Sesiones":
+                msguUS.setVisible(false);
+                msgsUS.setVisible(false);
+                usuUS.setText("");setBackground(Color.white);
+                sesUS.setText("");setBackground(Color.white);
+                actBotonUS.setText("Crear");
+                actUS.setVisible(true);
+                
                 break;
 
         }
-        addBoton.setEnabled(false);
+        if(opciones.getSelectedIndex()<8)
+            addBoton.setEnabled(false);
     }//GEN-LAST:event_addBotonActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         this.usutable = new UsuarioTablaModel(c.u);
         this.tabla.setModel(usutable);
+        deleteBoton.setEnabled(false);
+        editBoton.setEnabled(false);
     }//GEN-LAST:event_formWindowOpened
 
     private void CrearUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearUsuActionPerformed
         // TODO add your handling code here:
-        int n = c.comprobarUsu(dniUsu.getText(), nombreUsu.getText(), apelliUsu.getText(), tlfUsu.getText());
+        int n =0;
+        if(CrearUsu.getText().equals("Crear")){
+            n=c.comprobarUsu(dniUsu.getText(), nombreUsu.getText(), apelliUsu.getText(), tlfUsu.getText());
+        }else{
+            n=c.actUsu((int)tabla.getValueAt(tabla.getSelectedRow(),0),dniUsu.getText(), nombreUsu.getText(), apelliUsu.getText(), tlfUsu.getText());
+        }
         switch (n) {
             case 1:
                 this.UsuarioForm.dispose();
@@ -1063,7 +1543,12 @@ public class VistaGeneral extends javax.swing.JFrame {
 
     private void CrearMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearMatActionPerformed
         // TODO add your handling code here:
-        int n = c.comprobarMat(nombreMat.getText(), pesoMat.getText());
+        int n =0;
+        if(CrearMat.getText().equals("Crear")){
+            n=c.comprobarMat(nombreMat.getText(), pesoMat.getText());
+        }else{
+            n=c.actMat(fila,nombreMat.getText(), pesoMat.getText());
+        }
         switch (n) {
             case 1:
                 this.MaterialForm.dispose();
@@ -1100,7 +1585,12 @@ public class VistaGeneral extends javax.swing.JFrame {
 
     private void crearEjeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearEjeActionPerformed
         // TODO add your handling code here:
-        int n = c.comprobarEje(nombreEje.getText(), durEje.getText(), repEje.getValue().toString(), seriesEje.getValue().toString());
+        int n =0;
+        if(crearEje.equals("Crear")){
+            n=c.comprobarEje(nombreEje.getText(), durEje.getText(), repEje.getValue().toString(), seriesEje.getValue().toString());
+        }else{
+            n=c.actEje(fila,nombreEje.getText(), durEje.getText(), repEje.getValue().toString(), seriesEje.getValue().toString());
+        }
         switch (n) {
             case 1:
                 this.EjercicioForm.dispose();
@@ -1129,7 +1619,6 @@ public class VistaGeneral extends javax.swing.JFrame {
     private void MaterialFormWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_MaterialFormWindowClosed
         // TODO add your handling code here:
         addBoton.setEnabled(true);
-        msgM.setVisible(false);
         nombreMat.setText("");
         setBackground(Color.white);
         pesoMat.setText("");
@@ -1219,7 +1708,12 @@ public class VistaGeneral extends javax.swing.JFrame {
 
     private void crearSesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearSesActionPerformed
         // TODO add your handling code here:
-        int n=c.comprobarSes(fechaSes.getText(),horaSes.getText(),circuSes.getText());
+        int n=0;
+        if(crearSes.getText().equals("Crear")){
+            n=c.comprobarSes(fechaSes.getText(),horaSes.getText(),circuSes.getText());
+        }else{
+            n=c.actSes(this.fila,fechaSes.getText(),horaSes.getText(),circuSes.getText());
+        }
         switch(n){
             case 1:
                 addBoton.setEnabled(true);
@@ -1285,116 +1779,351 @@ public class VistaGeneral extends javax.swing.JFrame {
 
     private void deleteBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBotonActionPerformed
         // TODO add your handling code here:
+        editBoton.setEnabled(false);
         int row=tabla.getSelectedRow();
         int column=0;
         other.setVisible(false);
         switch(opciones.getSelectedItem().toString()){
             case "Usuarios":
-                try{
                 int idu= (int) tabla.getValueAt(row, column);
-                c.u.Borrar(idu);
-                this.usutable.updateModel();
-                this.tabla.setModel(usutable);
-                }catch(SQLException e){
+                if(!c.deleteUsu(idu)){
+                    c.u.Borrar(idu);
+                    this.usutable = new UsuarioTablaModel(c.u);
+                    this.tabla.setModel(usutable);
+                }else{
                     errorTabla.setText("Usuarios-Sesiones");
                     jDialog1.setVisible(true);
                 }
                 break;
             case "Sesiones":
-                try{
                 int ids= (int) tabla.getValueAt(row, column);
-                c.u.Borrar(ids);
-                this.stable.updateModel();
-                this.tabla.setModel(stable);
-                }catch(SQLException e){
+                if(!c.deleteSes(ids)){
+                    c.s.Borrar(ids);
+                    this.stable = new SesionTablaModel(c.s);
+                    this.tabla.setModel(stable);
+                }else{
                     errorTabla.setText("Usuarios-Sesiones");
                     jDialog1.setVisible(true);
                 }
                 break;
             case "Usuarios-Sesiones":
-                try{
                 int idus= (int) tabla.getValueAt(row, column);
-                c.u.Borrar(idus);
-                this.ustable.updateModel();
+                c.us.Borrar(idus);
+                this.ustable= new USTablaModel(c.us);
                 this.tabla.setModel(ustable);
-                }catch(SQLException e){
-                    
-                }
+                
                 break;
             case "Circuitos":
-                try{
                 int idc= (int) tabla.getValueAt(row, column);
-                c.u.Borrar(idc);
-                this.ctable.updateModel();
-                this.tabla.setModel(ctable);
-                }catch(SQLException e){
+                if (!c.deleteCir(idc)){
+                    c.c.Borrar(idc);
+                    this.ctable = new CircuitoTableModel(c.c);
+                    this.tabla.setModel(ctable);
+                }else{
                     errorTabla.setText("Circuitos-Ejercicios");
+                    other.setText("o Sesiones");
+                    other.setVisible(true);
                     jDialog1.setVisible(true);
                 }
                 break;
             case "Ejercicios":
-                try{
                 int ide= (int) tabla.getValueAt(row, column);
-                c.u.Borrar(ide);
-                this.etable.updateModel();
-                this.tabla.setModel(etable);
-                }catch(SQLException e){
+                if(!c.deleteEjer(ide)){
+                    c.e.Borrar(ide);
+                    this.etable = new EjercicioTablaModel(c.e);
+                    this.tabla.setModel(etable);
+                }else{
                     errorTabla.setText("Circuitos-Ejercicios");
                     other.setVisible(true);
                     jDialog1.setVisible(true);
                 }
                 break;
             case "Circuitos-Ejercicios":
-                try{
                 int idce= (int) tabla.getValueAt(row, column);
-                c.u.Borrar(idce);
-                this.cetable.updateModel();
+                c.ce.Borrar(idce);
+                this.cetable= new CETablaModel(c.ce);
                 this.tabla.setModel(cetable);
-                }catch(SQLException e){
-                    
-                }
+                
                 break;
             case "Materiales":
-                try{
                 int idm= (int) tabla.getValueAt(row, column);
-                c.u.Borrar(idm);
-                this.mtable.updateModel();
-                this.tabla.setModel(mtable);
-                }catch(SQLException e){
+                if(!c.deleteMat(idm)){
+                    c.m.Borrar(idm);
+                    this.mtable = new MaterialTablaModel(c.m);
+                    this.tabla.setModel(mtable);
+                }else{
                     errorTabla.setText("Ejercicios-Materieales");
                     jDialog1.setVisible(true);
                 }
                 break;
-            case "Facturas":
-                try{
-                int idf= (int) tabla.getValueAt(row, column);
-                c.u.Borrar(idf);
-                this.ftable.updateModel();
-                this.tabla.setModel(ftable);
-                }catch(SQLException e){
-                    errorTabla.setText("Usuarios");
-                    jDialog1.setVisible(true);
-                }
-                break;
             case "Ejercicios-Materiales":
-                try{
                 int idem= (int) tabla.getValueAt(row, column);
-                c.u.Borrar(idem);
-                this.emtable.updateModel();
+                c.em.Borrar(idem);
+                this.emtable= new EMTablaModel(c.em);
                 this.tabla.setModel(emtable);
-                }catch(SQLException e){
-                    
-                }
                 break;
-           
         }
+        deleteBoton.setEnabled(false);
     }//GEN-LAST:event_deleteBotonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        this.jDialog1.setVisible(false);
+        this.jDialog1.dispose();
+        this.setEnabled(true);
         other.setVisible(false);
+        other.setText("o Ejercicio-Material");
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
+        // TODO add your handling code here:
+        int row=tabla.getSelectedRow();
+        if(row>=0){
+            deleteBoton.setEnabled(true);
+            editBoton.setEnabled(true);
+        }
+    }//GEN-LAST:event_tablaMouseClicked
+
+    private void editBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBotonActionPerformed
+        // TODO add your handling code here:
+        deleteBoton.setEnabled(false);
+        int row= tabla.getSelectedRow();
+        this.fila=(int)tabla.getValueAt(row,0);
+        switch (opciones.getSelectedItem().toString()) {
+            case "Usuarios":
+                tituloUsu.setText("Actualizar Usuario");
+                msgU.setVisible(false);
+                nombreUsu.setText((String)tabla.getValueAt(row,1));
+                apelliUsu.setText((String)tabla.getValueAt(row,2));
+                dniUsu.setText((String)tabla.getValueAt(row,3));
+                tlfUsu.setText(tabla.getValueAt(row,4).toString());
+                CrearUsu.setText("Actualizar");
+                UsuarioForm.setVisible(true);
+                break;
+            case "Facturas":
+                
+                break;
+            case "Sesiones":
+                tituloSes.setText("Actualizar Sesión");
+                msgS1.setVisible(false);
+                msgS2.setVisible(false);
+                msgS3.setVisible(false);
+                this.fechaSes.setText(tabla.getValueAt(row,1).toString());
+                this.horaSes.setText(tabla.getValueAt(row,2).toString());
+                this.circuSes.setText(tabla.getValueAt(row,3).toString());
+                crearSes.setText("Actualizar");
+                SesionForm.setVisible(true);
+                break;
+            case "Circuitos":
+                actuCircu.setText((String)tabla.getValueAt(row,1));
+                actCircu.setVisible(true);
+                break;
+            case "Ejercicios":
+                tituloEje.setText("Actualizar Ejercicio");
+                msgE.setVisible(false);
+                this.nombreEje.setText((String)tabla.getValueAt(row,1));
+                this.durEje.setText((String)tabla.getValueAt(row,2).toString());
+                this.repEje.setValue((int)tabla.getValueAt(row,3));
+                this.seriesEje.setValue((int)tabla.getValueAt(row,4));
+                crearEje.setText("Actualizar");
+                this.EjercicioForm.setVisible(true);
+                break;
+            case "Materiales":
+                tituloMat.setText("Actualizar Material");
+                msgM.setVisible(false);
+                this.nombreMat.setText((String)tabla.getValueAt(row,1));
+                this.pesoMat.setText(tabla.getValueAt(row,2).toString());
+                CrearMat.setText("Actualizar");
+                MaterialForm.setVisible(true);
+                break;
+            case "Circuitos-Ejercicios":
+                msgeCE.setVisible(false);
+                msgcCE.setVisible(false);
+                circuCE.setText(tabla.getValueAt(row,1).toString());setBackground(Color.white);
+                ejerCE.setText(tabla.getValueAt(row,2).toString());setBackground(Color.white);
+                actCE.setVisible(true);
+                break;
+            case "Ejercicios-Materiales":
+                msgmEM.setVisible(false);
+                msgeEM.setVisible(false);
+                matEM.setText(tabla.getValueAt(row,2).toString());setBackground(Color.white);
+                ejerEM.setText(tabla.getValueAt(row,1).toString());setBackground(Color.white);
+                actBotonEM.setText("Actualizar");
+                actEM.setVisible(true);
+                break;
+            case "Usuarios-Sesiones":
+                msguUS.setVisible(false);
+                msgsUS.setVisible(false);
+                usuUS.setText(tabla.getValueAt(row,1).toString());setBackground(Color.white);
+                sesUS.setText(tabla.getValueAt(row,2).toString());setBackground(Color.white);
+                actBotonUS.setText("Actualizar");
+                actUS.setVisible(true);
+                break;
+
+        }
+        editBoton.setEnabled(false);
+    }//GEN-LAST:event_editBotonActionPerformed
+
+    private void actBotonCircuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actBotonCircuActionPerformed
+        // TODO add your handling code here:
+        int n = c.actCircu(fila,actuCircu.getText());
+        switch (n) {
+            case 1:
+                this.actCircu.dispose();
+                this.actuCircu.setText("");
+                this.ctable = new CircuitoTableModel(c.c);
+                this.tabla.setModel(ctable);
+                break;
+            case 2:
+                this.actuCircu.setBackground(Color.red);
+                break;
+        }
+    }//GEN-LAST:event_actBotonCircuActionPerformed
+
+    private void actuCircuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_actuCircuMouseClicked
+        // TODO add your handling code here:
+        actuCircu.setBackground(Color.white);
+    }//GEN-LAST:event_actuCircuMouseClicked
+
+    private void actCircuWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_actCircuWindowClosed
+        // TODO add your handling code here:
+        this.actuCircu.setText("");
+    }//GEN-LAST:event_actCircuWindowClosed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        int n=c.actCE(fila,circuCE.getText().toString(),ejerCE.getText().toString());
+        switch (n) {
+            case 1:
+                this.actCE.dispose();
+                this.circuCE.setText("");
+                this.ejerCE.setText("");
+                this.cetable = new CETablaModel(c.ce);
+                this.tabla.setModel(cetable);
+                break;
+            case 2:
+                this.circuCE.setBackground(Color.red);
+                throwMsg(msgcCE);
+                break;
+            case 3:
+                this.ejerCE.setBackground(Color.red);
+                throwMsg(msgeCE);
+                break;
+            case 4:
+                this.circuCE.setBackground(Color.red);
+                this.ejerCE.setBackground(Color.red);
+                throwMsg(msgeCE);
+                throwMsg(msgcCE);
+                break;
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void circuCEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_circuCEMouseClicked
+        // TODO add your handling code here:
+        circuCE.setBackground(Color.white);
+    }//GEN-LAST:event_circuCEMouseClicked
+
+    private void ejerCEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ejerCEMouseClicked
+        // TODO add your handling code here:
+        ejerCE.setBackground(Color.white);
+    }//GEN-LAST:event_ejerCEMouseClicked
+
+    private void matEMMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_matEMMouseClicked
+        // TODO add your handling code here:
+        matEM.setBackground(Color.white);
+    }//GEN-LAST:event_matEMMouseClicked
+
+    private void ejerEMMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ejerEMMouseClicked
+        // TODO add your handling code here:
+        ejerEM.setBackground(Color.white);
+    }//GEN-LAST:event_ejerEMMouseClicked
+
+    private void actBotonEMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actBotonEMActionPerformed
+        // TODO add your handling code here:
+        int n=0;
+        if(actBotonEM.getText().equals("Crear")){
+            n=c.crearEM(ejerEM.getText().toString(),matEM.getText().toString());
+        }else{
+            n=c.actEM(fila,ejerEM.getText().toString(),matEM.getText().toString());
+        }
+        switch (n) {
+            case 1:
+                this.actEM.dispose();
+                this.matEM.setText("");setBackground(Color.white);
+                this.ejerEM.setText("");setBackground(Color.white);
+                this.emtable = new EMTablaModel(c.em);
+                this.addBoton.setEnabled(true);
+                this.tabla.setModel(emtable);
+                break;
+            case 2:
+                this.ejerEM.setBackground(Color.red);
+                throwMsg(msgeEM);
+                break;
+            case 3:
+                this.matEM.setBackground(Color.red);
+                throwMsg(msgmEM);
+                break;
+            case 4:
+                this.matEM.setBackground(Color.red);
+                this.ejerEM.setBackground(Color.red);
+                throwMsg(msgmEM);
+                throwMsg(msgeEM);
+                break;
+        }
+    }//GEN-LAST:event_actBotonEMActionPerformed
+
+    private void usuUSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usuUSMouseClicked
+        // TODO add your handling code here:
+        usuUS.setBackground(Color.white);
+    }//GEN-LAST:event_usuUSMouseClicked
+
+    private void sesUSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sesUSMouseClicked
+        // TODO add your handling code here:
+        sesUS.setBackground(Color.white);
+    }//GEN-LAST:event_sesUSMouseClicked
+
+    private void actBotonUSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actBotonUSActionPerformed
+        // TODO add your handling code here:
+        int n=0;
+        if(actBotonUS.getText().equals("Crear")){
+            
+            n=c.crearUS(usuUS.getText().toString(),sesUS.getText().toString());
+        }else{
+            n=c.actUS(fila,usuUS.getText().toString(),sesUS.getText().toString());
+        }
+        switch (n) {
+            case 1:
+                this.actUS.dispose();
+                this.sesUS.setText("");
+                this.usuUS.setText("");
+                this.ustable = new USTablaModel(c.us);
+                this.tabla.setModel(ustable);
+                break;
+            case 2:
+                this.usuUS.setBackground(Color.red);
+                throwMsg(msguUS);
+                break;
+            case 3:
+                this.sesUS.setBackground(Color.red);
+                throwMsg(msgsUS);
+                break;
+            case 4:
+                this.sesUS.setBackground(Color.red);
+                this.usuUS.setBackground(Color.red);
+                throwMsg(msgsUS);
+                throwMsg(msguUS);
+                break;
+        }
+    }//GEN-LAST:event_actBotonUSActionPerformed
+
+    private void actUSWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_actUSWindowClosed
+        // TODO add your handling code here:
+        addBoton.setEnabled(true);
+    }//GEN-LAST:event_actUSWindowClosed
+
+    private void actEMWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_actEMWindowClosed
+        // TODO add your handling code here:
+        addBoton.setEnabled(true);
+    }//GEN-LAST:event_actEMWindowClosed
 
     
     
@@ -1408,8 +2137,17 @@ public class VistaGeneral extends javax.swing.JFrame {
     private javax.swing.JFrame MaterialForm;
     private javax.swing.JFrame SesionForm;
     private javax.swing.JFrame UsuarioForm;
+    private javax.swing.JButton actBotonCircu;
+    private javax.swing.JButton actBotonEM;
+    private javax.swing.JButton actBotonUS;
+    private javax.swing.JFrame actCE;
+    private javax.swing.JFrame actCircu;
+    private javax.swing.JFrame actEM;
+    private javax.swing.JFrame actUS;
+    private javax.swing.JTextField actuCircu;
     private javax.swing.JButton addBoton;
     private javax.swing.JTextField apelliUsu;
+    private javax.swing.JTextField circuCE;
     private javax.swing.JTextField circuSes;
     private javax.swing.JComboBox<String> comboEje;
     private javax.swing.JButton crearCircu;
@@ -1419,11 +2157,14 @@ public class VistaGeneral extends javax.swing.JFrame {
     private javax.swing.JTextField dniUsu;
     private javax.swing.JTextField durEje;
     private javax.swing.JButton editBoton;
+    private javax.swing.JTextField ejerCE;
     private javax.swing.JTextField ejerCircu;
+    private javax.swing.JTextField ejerEM;
     private javax.swing.JLabel errorTabla;
     private javax.swing.JTextField fechaSes;
     private javax.swing.JTextField horaSes;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1440,6 +2181,13 @@ public class VistaGeneral extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1448,18 +2196,27 @@ public class VistaGeneral extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JSeparator jSeparator9;
+    private javax.swing.JTextField matEM;
     private javax.swing.JLabel msgC;
     private javax.swing.JLabel msgE;
     private javax.swing.JLabel msgM;
@@ -1467,6 +2224,12 @@ public class VistaGeneral extends javax.swing.JFrame {
     private javax.swing.JLabel msgS2;
     private javax.swing.JLabel msgS3;
     private javax.swing.JLabel msgU;
+    private javax.swing.JLabel msgcCE;
+    private javax.swing.JLabel msgeCE;
+    private javax.swing.JLabel msgeEM;
+    private javax.swing.JLabel msgmEM;
+    private javax.swing.JLabel msgsUS;
+    private javax.swing.JLabel msguUS;
     private javax.swing.JTextField nombreCircu;
     private javax.swing.JTextField nombreEje;
     private javax.swing.JTextField nombreMat;
@@ -1476,8 +2239,14 @@ public class VistaGeneral extends javax.swing.JFrame {
     private javax.swing.JTextField pesoMat;
     private javax.swing.JSpinner repEje;
     private javax.swing.JSpinner seriesEje;
+    private javax.swing.JTextField sesUS;
     private javax.swing.JTable tabla;
+    private javax.swing.JLabel tituloEje;
+    private javax.swing.JLabel tituloMat;
+    private javax.swing.JLabel tituloSes;
+    private javax.swing.JLabel tituloUsu;
     private javax.swing.JTextField tlfUsu;
+    private javax.swing.JTextField usuUS;
     // End of variables declaration//GEN-END:variables
     
     /**

@@ -14,17 +14,11 @@
       <column length="150" name="nombre" not-null="true"/>
     </property>
     <property name="apellidos" type="string">
-      <column name="apellidos" not-null="true"/>
+      <column length="150" name="apellidos" not-null="true"/>
     </property>
     <property name="telefono" type="int">
       <column name="telefono" not-null="true"/>
     </property>
-    <set fetch="select" inverse="true" lazy="true" name="facturas" table="factura">
-      <key>
-        <column name="id_usuario" not-null="true" unique="true"/>
-      </key>
-      <one-to-many class="com.alpirres.Modelo.Factura"/>
-    </set>
     <set fetch="select" inverse="true" lazy="true" name="usuarioSesions" table="`usuario-sesion`">
       <key>
         <column name="id_usuario" not-null="true"/>

@@ -51,13 +51,34 @@ public class UsuarioHibernate {
         c.cerrar();
         
         return esta;
-    } 
+    }
     
-    public static void Update(Usuario u){
+    public static boolean SearchId(int id){
+        boolean esta=false;
         c.abrir();
-
-        c.session.update(u);
         
+        Query query = c.session.createQuery("from Usuario where id= :id");
+        query.setParameter("id", id);
+        
+        if (query.list().size()>0){
+            esta=true;
+        }
+        c.cerrar();
+        
+        return esta;
+    }
+    
+    public static void Update(int id, String dni, String nombre, String apellidos, int telefono){
+        c.abrir();
+        
+        Query query = c.session.createQuery("update Usuario set dni = :dni , nombre= :nombre , apellidos= :apellidos , telefono= :telefono where id = :id");
+        query.setParameter("dni", dni);
+        query.setParameter("nombre", nombre);
+        query.setParameter("apellidos", apellidos);
+        query.setParameter("telefono",telefono);
+        query.setParameter("id", id);
+        int result = query.executeUpdate();
+       
         c.cerrar();
     }
     

@@ -7,6 +7,7 @@ package com.alpirres.Dao;
 
 import com.alpirres.Modelo.Circuito;
 import com.alpirres.Utilities.Conection;
+import java.sql.SQLException;
 import java.util.List;
 import org.hibernate.query.Query;
 
@@ -54,10 +55,13 @@ public class CircuitoHibernate {
     }
     
     
-    public static void Update(Circuito cir){
+    public static void Update(int id, String nombre){
         c.abrir();
 
-        c.session.update(cir);
+        Query query = c.session.createQuery("update Circuito set nombre= :nombre where id = :id");
+        query.setParameter("nombre", nombre);
+        query.setParameter("id", id);
+        int result = query.executeUpdate();
         
         c.cerrar();
     }

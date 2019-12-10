@@ -20,7 +20,7 @@ import java.util.List;
  */
 public class CEController {
     
-    static CEHibernate ce;
+    public CEHibernate ce;
     static Conection c;
     
     public void Insertar(int circu, int ejer){
@@ -39,21 +39,6 @@ public class CEController {
         List<CircuEjercicio> lista = new ArrayList<>();
         lista=ce.Select();
         return lista;
-    }
-    
-    public void Actualizar(int id, int circu, int ejer){
-        c.abrir();
-        
-        Circuito circuito =(Circuito) c.session.get(Circuito.class, circu);
-        Ejercicio ejercicio =(Ejercicio) c.session.get(Ejercicio.class, ejer);
-        
-        CircuEjercicio a = (CircuEjercicio) c.session.get(CircuEjercicio.class, id);
-        a.setCircuito(circuito);
-        a.setEjercicio(ejercicio);
-        
-        c.cerrar();
-        
-        ce.Update(a);
     }
     
     public void Borrar(int id){

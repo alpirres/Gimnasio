@@ -33,20 +33,7 @@ public class EjercicioController {
         return lista;
     }
     
-    public void Actualizar(int id, String nombre, Time duracion, int repeticiones, int series){
-        c.abrir();
-        
-        Ejercicio a = (Ejercicio) c.session.get(Ejercicio.class, id);
-        a.setNombre(nombre);
-        a.setDuracion(duracion);
-        a.setRepeticiones(repeticiones);
-        a.setSeries(series);
-        
-        c.cerrar();
-        ejer.Update(a);
-    }
-    
-    public void Borrar(int id)throws SQLException{
+    public void Borrar(int id){
         ejer.Delete(id);
     }
 }

@@ -21,43 +21,27 @@ import java.util.List;
  */
 public class USController {
     
-    static USHibernate us;
+    public USHibernate us;
     static Conection c;
     
     public void Insertar(int ses, int usu){
         c.abrir();
-        
+        System.out.println("entra");
         Usuario usuario =(Usuario) c.session.get(Usuario.class, usu);
         Sesion sesion =(Sesion) c.session.get(Sesion.class, ses);
-        
+        System.out.println("sale");
         c.cerrar();
         
         UsuarioSesion nuevo = new UsuarioSesion(sesion, usuario);
-        
+        System.out.println(nuevo.getUsuario().getId());
+        System.out.println(nuevo.getSesion().getId());
         us.Create(nuevo);
     }
     
     public List<UsuarioSesion> Leer(){
         List<UsuarioSesion> lista = new ArrayList<>();
-        lista=
-                us.Select();
+        lista=us.Select();
         return lista;
-    }
-    
-    public void Actualizar(int id, int ses, int usu){
-        c.abrir();
-        
-        Usuario usuario =(Usuario) c.session.get(Usuario.class, usu);
-        Sesion sesion =(Sesion) c.session.get(Sesion.class, ses);
-        
-        UsuarioSesion a = (UsuarioSesion) c.session.get(UsuarioSesion.class, id);
-        a.setSesion(sesion);
-        a.setUsuario(usuario);
-        
-        c.cerrar();
-        
-        
-        us.Update(a);
     }
     
     public void Borrar(int id){

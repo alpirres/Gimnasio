@@ -10,8 +10,8 @@
     <many-to-one class="com.alpirres.Modelo.Circuito" fetch="select" name="circuito">
       <column name="id_circuito" not-null="true" unique="true"/>
     </many-to-one>
-    <property name="fecha" type="timestamp">
-      <column length="19" name="fecha" not-null="true"/>
+    <property name="fecha" type="string">
+      <column length="11" name="fecha" not-null="true"/>
     </property>
     <property name="hora" type="time">
       <column length="8" name="hora" not-null="true"/>

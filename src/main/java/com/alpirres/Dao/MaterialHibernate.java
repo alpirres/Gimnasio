@@ -38,10 +38,29 @@ public class MaterialHibernate {
         return query.list();
     }
     
-    public static void Update(Material m){
+    public static boolean SearchId(int id){
+        boolean esta=false;
+        c.abrir();
+        
+        Query query = c.session.createQuery("from Material where id= :id");
+        query.setParameter("id", id);
+        
+        if (query.list().size()==1){
+            esta=true;
+        }
+        c.cerrar();
+        
+        return esta;
+    } 
+    
+    public static void Update(int id, String nombre, int peso){
         c.abrir();
 
-        c.session.update(m);
+        Query query = c.session.createQuery("update Material set  nombre= :nombre , peso= :peso where id = :id");
+        query.setParameter("nombre", nombre);
+        query.setParameter("peso", peso);
+        query.setParameter("id", id);
+        int result = query.executeUpdate();
         
         c.cerrar();
     }

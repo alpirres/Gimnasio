@@ -36,21 +36,7 @@ public class UsuarioController {
         return lista;
     }
     
-    public void Actualizar(int id, String dni, String nombre, String apellidos, int telefono){
-        c.abrir();
-
-        Usuario a = (Usuario) c.session.get(Usuario.class, id);
-        a.setDni(dni);
-        a.setNombre(nombre);
-        a.setApellidos(apellidos);
-        a.setTelefono(telefono);
-        
-        c.cerrar();
-        
-        usu.Update(a);
-    }
-    
-    public void Borrar(int id) throws SQLException{
+    public void Borrar(int id) {
         usu.Delete(id);
     }
     

@@ -19,7 +19,7 @@ import java.util.List;
  */
 public class MaterialController {
     
-    static MaterialHibernate mat;
+    public MaterialHibernate mat;
     static Conection c;
     
     public void Insertar(String nombre, int peso){
@@ -33,19 +33,8 @@ public class MaterialController {
         return lista;
     }
     
-    public void Actualizar(int id, String nombre, int peso){
-        c.abrir();
-        
-        Material a = (Material) c.session.get(Material.class, id);
-        a.setNombre(nombre);
-        a.setPeso(peso);
-        
-        c.cerrar();
-        
-        mat.Update(a);
-    }
     
-    public void Borrar(int id)throws SQLException{
+    public void Borrar(int id){
         mat.Delete(id);
     }
 }
