@@ -26,15 +26,13 @@ public class USController {
     
     public void Insertar(int ses, int usu){
         c.abrir();
-        System.out.println("entra");
+        
         Usuario usuario =(Usuario) c.session.get(Usuario.class, usu);
         Sesion sesion =(Sesion) c.session.get(Sesion.class, ses);
-        System.out.println("sale");
+        
         c.cerrar();
         
         UsuarioSesion nuevo = new UsuarioSesion(sesion, usuario);
-        System.out.println(nuevo.getUsuario().getId());
-        System.out.println(nuevo.getSesion().getId());
         us.Create(nuevo);
     }
     

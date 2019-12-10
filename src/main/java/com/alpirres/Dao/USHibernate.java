@@ -71,7 +71,7 @@ public class USHibernate {
         query.setParameter("id_usuario", id_usuario);
         query.setParameter("id", id);
         int result = query.executeUpdate();
-        System.out.println(result+"adkfjhasrhfgry");
+        
         c.cerrar();
     }
     

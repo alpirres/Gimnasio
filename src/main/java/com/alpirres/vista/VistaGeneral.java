@@ -35,7 +35,7 @@ public class VistaGeneral extends javax.swing.JFrame {
     public VistaGeneral(ControllerApp c) {
         initComponents();
         this.c = c;
-        //Image e = new ImageIcon(getClass().getResource("..\\com\\alpirres\\gym\\icons\\icon.png")).getImage();
+        //Image e = new ImageIcon(getClass().getResource("K:\\2020\\ADD\\JPAH2\\Gym\\src\\main\\resources\\com\\alpirres\\gym\\icons\\icon.png")).getImage();
         //this.setIconImage(e);
     }
 
@@ -1244,6 +1244,7 @@ public class VistaGeneral extends javax.swing.JFrame {
         setTitle("Gimnasio");
         setBackground(new java.awt.Color(255, 255, 255));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setIconImage(getIconImage());
         setSize(new java.awt.Dimension(880, 530));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -1257,7 +1258,7 @@ public class VistaGeneral extends javax.swing.JFrame {
         jLabel1.setText("Gimnasio");
 
         opciones.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        opciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuarios", "Facturas", "Sesiones", "Circuitos", "Ejercicios", "Materiales", "Ejercicios-Materiales", "Usuarios-Sesiones", "Circuitos-Ejercicios" }));
+        opciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuarios", "Sesiones", "Circuitos", "Ejercicios", "Materiales", "Ejercicios-Materiales", "Usuarios-Sesiones", "Circuitos-Ejercicios" }));
         opciones.setBorder(null);
         opciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1420,9 +1421,6 @@ public class VistaGeneral extends javax.swing.JFrame {
                 tituloUsu.setText("Crear un nuevo Usuario");
                 UsuarioForm.setVisible(true);
                 break;
-            case "Facturas":
-                
-                break;
             case "Sesiones":
                 msgS1.setVisible(false);
                 msgS2.setVisible(false);
@@ -1469,7 +1467,7 @@ public class VistaGeneral extends javax.swing.JFrame {
                 break;
 
         }
-        if(opciones.getSelectedIndex()<8)
+        if(opciones.getSelectedIndex()<7)
             addBoton.setEnabled(false);
     }//GEN-LAST:event_addBotonActionPerformed
 
@@ -1694,7 +1692,6 @@ public class VistaGeneral extends javax.swing.JFrame {
         if (item.equals("Añadir ejercicio...")) {
             if (c.comprobarCombo(ejerCircu.getText())) {
                 comboEje.addItem(ejerCircu.getText());
-                //System.out.println(datosGui.getItemsMapMat().toString());
                 ejerCircu.setText("");
             } else {
                 ejerCircu.setBackground(Color.red);
@@ -1899,9 +1896,7 @@ public class VistaGeneral extends javax.swing.JFrame {
                 CrearUsu.setText("Actualizar");
                 UsuarioForm.setVisible(true);
                 break;
-            case "Facturas":
-                
-                break;
+            
             case "Sesiones":
                 tituloSes.setText("Actualizar Sesión");
                 msgS1.setVisible(false);
